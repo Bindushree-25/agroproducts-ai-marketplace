@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farmer Registration</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        /* Basic styling for the body - Matching index.html theme */
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f4f4; /* Matching index.html background */
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* Container for the registration form - More visually distinct */
+        .registration-container {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 12px; /* Slightly more rounded container */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15); /* More prominent shadow */
+            width: 100%;
+            max-width: 700px; /* Increased max-width for more details and potential two-column */
+            color: #333;
+            position: relative; /* Needed for potential background effects */
+            overflow: hidden; /* Ensures background stays within border-radius */
+        }
+
+        /* Add a subtle background pattern or color gradient (same as customer) */
+        .registration-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 10px; /* A thin green stripe at the top */
+            background-color: #4CAF50; /* Theme accent color */
+            border-top-left-radius: 12px;
+            border-top-right-radius: 12px;
+        }
+
+
+        /* Styling for the form title - More emphasis with the accent color */
+        .registration-container h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #4CAF50; /* Using the accent color for the title */
+            font-weight: 600;
+            position: relative;
+        }
+
+        /* Add an underline effect to the title (same as customer) */
+        .registration-container h2::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background-color: #333; /* Using the text color for the underline */
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+
+        /* Styling for form groups (label and input) */
+        .form-group {
+            margin-bottom: 25px; /* Increased spacing */
+        }
+
+        /* Styling for labels */
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500; /* Slightly bolder label */
+            color: #555; /* Slightly lighter text color for labels */
+        }
+
+        /* Styling for input fields, select, textarea - More visually appealing (same as customer) */
+        .form-group input[type="text"],
+        .form-group input[type="email"],
+        .form-group input[type="password"], /* Added password for potential login */
+        .form-group input[type="tel"],
+        .form-group input[type="date"],
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 14px 18px; /* Increased padding */
+            border: 1px solid #ddd; /* Lighter border */
+            border-radius: 25px; /* Very rounded input fields */
+            box-sizing: border-box;
+            font-size: 1rem;
+            font-family: 'Poppins', sans-serif;
+            color: #333;
+            background-color: #f9f9f9; /* Slightly off-white background for inputs */
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        /* Focus effect for input fields - More prominent (same as customer) */
+        .form-group input[type="text"]:focus,
+        .form-group input[type="email"]:focus,
+        .form-group input[type="password"]:focus,
+        .form-group input[type="tel"]:focus,
+        .form-group input[type="date"]:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: #4CAF50; /* Theme accent color */
+            box-shadow: 0 0 8px rgba(76, 175, 80, 0.4); /* More prominent shadow with accent color */
+            outline: none;
+            background-color: #fff; /* White background on focus */
+        }
+
+        /* Styling for the submit button - More prominent and rounded (same as customer) */
+        .form-group button {
+            width: 100%;
+            padding: 16px; /* Increased padding */
+            background-color: #4CAF50; /* Theme accent color */
+            color: white;
+            border: none;
+            border-radius: 25px; /* Matching input field roundedness */
+            cursor: pointer;
+            font-size: 1.3rem; /* Slightly larger font */
+            font-weight: 600;
+            letter-spacing: 0.5px; /* Added letter spacing */
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        /* Hover effect for the submit button (same as customer) */
+        .form-group button:hover {
+            background-color: #388E3C; /* Darker green */
+            transform: translateY(-2px); /* Slight lift effect */
+        }
+
+        /* Active effect for the submit button (same as customer) */
+        .form-group button:active {
+            transform: translateY(0); /* Press down effect */
+        }
+
+        /* Two-column layout for wider screens (same as customer) */
+        @media (min-width: 768px) {
+            .form-row {
+                display: flex;
+                gap: 20px; /* Space between columns */
+            }
+
+            .form-row .form-group {
+                flex: 1; /* Make each form group take equal width */
+            }
+        }
+
+        /* Styling for the "Already have an account?" link (same as customer) */
+        .login-link {
+            text-align: center;
+            margin-top: 30px; /* Increased margin */
+            font-size: 1rem;
+        }
+
+        .login-link a {
+            color: #4CAF50; /* Theme accent color */
+            text-decoration: none;
+            font-weight: 500; /* Slightly bolder link */
+            transition: color 0.3s ease;
+        }
+
+        .login-link a:hover {
+            color: #333;
+            text-decoration: underline;
+        }
+
+    </style>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="registration-container">
+        <h2>Farmer Registration</h2>
+        <form action="process_farmer_registration.php" method="post"> <!-- Update action URL -->
+
+            <div class="form-group">
+                <label for="full_name">Full Name:</label>
+                <input type="text" id="full_name" name="full_name" required>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone_number">Phone Number:</label>
+                    <input type="tel" id="phone_number" name="phone_number">
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="confirm_password">Confirm Password:</label>
+                    <input type="password" id="confirm_password" name="confirm_password" required>
+                </div>
+            </div>
+
+  <div class="form-group">
+        <label for="farm_address">Farm Address:</label>
+        <textarea id="farm_address" name="farm_address" rows="3" required></textarea>
+    </div>
+
+             <div class="form-row">
+                <div class="form-group">
+                    <label for="city">City:</label>
+                    <input type="text" id="city" name="city" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="country">Country:</label>
+                    <input type="text" id="country" name="country" required>
+                </div>
+             </div>
+
+             <div class="form-row">
+                <div class="form-group">
+                    <label for="farm_size">Farm Size (in acres or hectares):</label>
+                    <input type="text" id="farm_size" name="farm_size">
+                </div>
+
+                <div class="form-group">
+                    <label for="primary_crop">Primary Crop Grown:</label>
+                    <input type="text" id="primary_crop" name="primary_crop">
+                </div>
+             </div>
+
+             <div class="form-group">
+                <label for="farming_experience">Years of Farming Experience:</label>
+                <input type="text" id="farming_experience" name="farming_experience">
+             </div>
+
+             <div class="form-group">
+                <label for="preferred_contact">Preferred Contact Method:</label>
+                <select id="preferred_contact" name="preferred_contact">
+                    <option value="">Select Method</option>
+                    <option value="email">Email</option>
+                    <option value="phone">Phone</option>
+                    <option value="whatsapp">WhatsApp</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <button type="submit">Register Farmer</button>
+            </div>
+
+        </form>
+
+        
+    </div>
+
+</body>
+</html>

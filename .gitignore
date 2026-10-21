@@ -1,0 +1,22 @@
+# Local credentials
+.env
+.env.*
+!.env.example
+config.local.php
+
+# Runtime logs and temporary files
+*.log
+*.tmp
+.DS_Store
+Thumbs.db
+
+# Personal/user uploads and screenshots
+uploads/*
+!uploads/.gitkeep
+
+# Archives and duplicate bundles
+*.zip
+
+# IDE files
+.vscode/
+.idea/

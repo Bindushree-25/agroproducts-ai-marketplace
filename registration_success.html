@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registration Successful</title>
+    <style>
+        /* Basic styling to match a clean form theme */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4; /* Light gray background */
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center; /* Center content horizontally */
+            align-items: center; /* Center content vertically */
+            min-height: 100vh; /* Ensure it takes at least the full viewport height */
+        }
+
+        .success-container {
+            background-color: #fff; /* White background for the container */
+            padding: 30px;
+            border-radius: 8px; /* Rounded corners */
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+            text-align: center; /* Center text within the container */
+            max-width: 400px; /* Limit the width of the container */
+            width: 90%; /* Make it responsive */
+        }
+
+        h1 {
+            color: #28a745; /* Green color for success message */
+            margin-bottom: 20px;
+        }
+
+        p {
+            color: #555; /* Dark gray text */
+            margin-bottom: 20px;
+            line-height: 1.6; /* Improve readability */
+        }
+
+        .home-button {
+            display: inline-block; /* Make it behave like a block element but fit content */
+            background-color: #007bff; /* Blue button color */
+            color: white; /* White text */
+            padding: 12px 25px;
+            border: none;
+            border-radius: 5px; /* Rounded button corners */
+            text-decoration: none; /* Remove underline from the link */
+            font-size: 16px;
+            cursor: pointer; /* Indicate it's clickable */
+            transition: background-color 0.3s ease; /* Smooth hover effect */
+        }
+
+        .home-button:hover {
+            background-color: #0056b3; /* Darker blue on hover */
+        }
+    </style>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="success-container">
+        <h1>Registration Successful!</h1>
+        <p>Thank you for registering with AgroProducts. Your account has been created successfully.</p>
+        <a href="index.php" class="home-button">Go to Home Page</a>
+    </div>
+</body>
+</html>
