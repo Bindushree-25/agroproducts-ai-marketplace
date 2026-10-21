@@ -1,51 +1,240 @@
-# AgroProducts — Farm-to-Table Marketplace
+# AgroProducts | AI-Enhanced Farm-to-Consumer Marketplace
 
-A PHP/MySQL academic marketplace connecting customers with farmers. The release package keeps the existing two-role account flow and uses a premium forest-green, warm-ivory and muted-gold design system.
+**A full-stack agricultural marketplace connecting farmers and customers through digital product discovery, inventory management, and streamlined ordering.**
 
-## Features
+AgroProducts is a web application built to make agricultural products easier to discover and purchase online. The platform provides dedicated farmer and customer workflows, product listings, shopping-cart functionality, order processing, and an AI-focused workspace for intelligent marketplace assistance.
 
-- Separate customer and farmer registration/login, profiles, role-aware navigation and logout
-- Farmer dashboard, product uploads and product management
-- Redesigned marketplace catalogue with live search, category filters, price/name sorting, stock signals, wishlist, responsive product cards and toast feedback
-- Farmer accounts can browse the public market without being redirected to customer login; cart actions are only available to customers
-- Customer catalogue, local-storage cart and order confirmation
-- Checkout re-reads prices, farmer IDs and stock from the database on the server; browser-supplied prices are not trusted
-- Transactional order creation and stock decrement for products with a finite stock value
-- Agro Intelligence Studio: catalogue-aware, explainable product matching; inventory and listing-quality audit; waste-aware shopping planner; and a conversational assistant with a local fallback. The local recommender is a heuristic, not a trained ML model. Optional generative responses require your own API key in an ignored `config.local.php` file.
-- Premium responsive visual system across the landing page, marketplace, farmer business workspace and AI Studio
-- Clean schema installer that creates the three expected databases without importing real personal/order records
+> **Project type:** Full-stack web application  
+> **Domain:** AgriTech · E-commerce · Applied AI  
+> **Status:** Local development build
 
-## Requirements
+---
 
-- XAMPP (Apache + MySQL/MariaDB)
-- PHP with `mysqli`, `PDO` and `pdo_mysql` enabled
-- A modern browser
+## Overview
 
-## Local setup
+Traditional agricultural supply chains can make it difficult for customers to discover products directly from farmers. AgroProducts explores how a digital marketplace can simplify product discovery, support farmer-managed listings, and provide a more structured online purchasing experience.
 
-1. Start **Apache** and **MySQL** in XAMPP.
-2. Copy this `AgroProducts` folder into `C:\xampp\htdocs\AgroProducts`.
-3. Open `http://localhost/phpmyadmin`.
-4. Select **Import**, choose `database_schema.sql`, and run it on a fresh local MySQL instance. It creates the expected table structure for `shop_db`, `farmerreg_db`, and `customerreg_db`. It intentionally does not import personal records or sample orders. Do not import over existing tables; back up first and use an empty instance for the clean demo schema.
-5. The PHP pages assume the standard local XAMPP credentials (`localhost`/`127.0.0.1`, user `root`, blank password). If your local MySQL password differs, the connection settings in the PHP files must be aligned before running; do not commit credentials to GitHub.
-6. Open `http://localhost/AgroProducts/index.php`.
-7. Register a fresh customer and a fresh farmer account. Use the farmer account to add a product; then sign in as the customer, add that product to the cart and place an order.
+The application combines a PHP-based web interface with a MySQL/MariaDB database, interactive JavaScript components, and AI-oriented assistance features.
 
-### Existing database warning
+## Key Features
 
-`database_schema.sql` is intended for a fresh local database instance. It is not a migration script and may report duplicate-table errors if tables already exist. Back up existing databases first; never drop or overwrite data you need. Do not import production or personal records into a public repository.
+### 🛒 Digital Marketplace
+- Browse agricultural products across supported categories.
+- View product information, pricing, and available inventory.
+- Use a shopping cart to organize selected products.
+- Follow the application's order-processing workflow.
 
-## Checkout and payments
+### 🌾 Farmer Workspace
+- Farmer registration and login workflows.
+- Farmer profile and product-management interfaces.
+- Product listing and inventory-related operations.
 
-Checkout creates a `Pending` order in the schema supplied with the project. This academic demo **does not process or collect payments**. Legacy endpoints that expected nonexistent payment columns or accepted raw card numbers have been disabled. Never enter real card details. A real payment flow requires a compliant hosted payment provider and must not store raw card numbers.
+### 👤 Customer Experience
+- Customer registration and login workflows.
+- Customer profile management.
+- Product browsing, cart interactions, and order-related pages.
 
-## GitHub safety
+### 🤖 AI-Focused Workspace
+- Dedicated AI Studio interface.
+- AI assistant interface for marketplace-related support.
+- Smart-guide interface for guided user assistance.
 
-- Do not commit `config.local.php`, `.env`, database dumps containing personal records, logs, screenshots, or real uploads.
-- The schema installer is structure-only and safe to share; verify it before public release.
-- Use a dedicated database user with a strong password outside a local-only demo.
-- Treat this as an academic project until authorization, CSRF protection, upload validation, rate limiting, and deployment security have been independently reviewed.
+*AI-related interfaces are included in the project. Their available responses and integrations depend on the configured implementation; this repository does not claim independently benchmarked AI performance.*
 
-## Verification status
+### 🗄️ Data Management
+- Relational database structure for marketplace data.
+- Product, customer, farmer, order, and order-item data models.
+- SQL schema provided to support local database setup.
 
-The source package has been checked for PHP syntax and JavaScript syntax. The archive has not been tested against a live MySQL instance in this build environment. This build environment does not include the MySQL PHP extension or a running MariaDB instance, so a live database-backed end-to-end test could not be executed here. Run the local smoke test in step 7 after importing the schema. Do not describe database checkout as independently verified until that test passes on your XAMPP setup.
+---
+
+## Technology Stack
+
+| Layer | Technologies |
+|---|---|
+| Frontend | HTML5, CSS3, JavaScript |
+| Backend | PHP |
+| Database | MySQL / MariaDB |
+| Local development | XAMPP, Apache |
+| Interface features | Interactive cart, marketplace pages, AI-focused workspace |
+| Source control | Git and GitHub |
+
+---
+
+## Application Architecture
+
+```text
+Customer / Farmer
+        |
+        v
+HTML + CSS + JavaScript
+        |
+        v
+PHP Application
+        |
+        v
+MySQL / MariaDB
+        |
+        v
+Products · Profiles · Orders
+```
+
+The AI-focused interfaces form an additional application layer. External AI services, if required by the implementation, must be configured separately.
+
+---
+
+## Getting Started
+
+### Prerequisites
+
+Install the following on your local computer:
+
+- [XAMPP](https://www.apachefriends.org/) with Apache, PHP, and MySQL/MariaDB.
+- A web browser.
+- [GitHub repository](https://github.com/Bindushree-25/agroproducts-ai-marketplace) source files.
+
+### 1. Download the project
+
+Clone the repository:
+
+```bash
+git clone https://github.com/Bindushree-25/agroproducts-ai-marketplace.git
+```
+
+Alternatively, select **Code → Download ZIP** on GitHub and extract the files.
+
+### 2. Place the project in XAMPP
+
+Copy the project folder into XAMPP's `htdocs` directory.
+
+For example:
+
+```text
+C:\xampp\htdocs\AgroProducts
+```
+
+Keep `index.php`, the PHP application files, stylesheets, JavaScript files, and the `images` directory together in the project root.
+
+### 3. Start the local server
+
+Open the XAMPP Control Panel and start:
+
+- Apache
+- MySQL
+
+### 4. Set up the database
+
+1. Open [phpMyAdmin](http://localhost/phpmyadmin/) in your browser.
+2. Create the database required by the application.
+3. Import `database_schema.sql` if it contains the required table definitions.
+4. Review the database names and tables expected by the application's PHP files.
+5. Configure the local database connection in `db_connect.php` to match your XAMPP settings.
+
+**Important:** A schema file may create tables without supplying the product catalogue or other initial records. If required, add appropriate sample data before testing the application.
+
+### 5. Configure local settings
+
+Review `config.local.example.php` for the intended local configuration process.
+
+Use your own local database settings. Never publish real passwords, API keys, private configuration files, or production credentials.
+
+### 6. Run the application
+
+If the project is placed at `C:\xampp\htdocs\AgroProducts`, open:
+
+```text
+http://localhost/AgroProducts/
+```
+
+If you use a different folder name, adjust the URL accordingly.
+
+---
+
+## Repository Structure
+
+```text
+agroproducts-ai-marketplace/
+├── index.php
+├── README.md
+├── .gitignore
+├── database_schema.sql
+├── db_connect.php
+├── header.php
+├── footer.php
+├── shop.php
+├── shop.js
+├── cart.php
+├── cart.js
+├── ai_studio.php
+├── ai-studio.js
+├── ai_assistant.php
+├── smart_guide.php
+├── smart-guide.js
+├── farmer_dashboard.php
+├── manage_products.php
+├── upload_product.php
+├── customer_*.php
+├── farmer_*.php
+├── process_*.php
+├── style.css
+├── stylebck.css
+└── images/
+```
+
+The structure above highlights the principal application files; additional supporting PHP pages and image assets are also included.
+
+---
+
+## Engineering Highlights
+
+This project brings together several practical full-stack development concepts:
+
+- **Role-oriented workflows:** separate farmer and customer experiences.
+- **Database-backed application design:** relational entities for marketplace operations.
+- **Interactive frontend behaviour:** JavaScript-driven cart and user interactions.
+- **Modular PHP pages:** reusable layout components and separated workflow handlers.
+- **Applied AI interface design:** dedicated assistant and smart-guide experiences.
+- **Local deployment:** a reproducible development environment using XAMPP.
+
+## Screenshots & Demonstration
+
+Screenshots of the actual running application will be added here to demonstrate:
+
+1. Marketplace homepage and product catalogue.
+2. Farmer dashboard and product management.
+3. Shopping cart and order workflow.
+4. AI Studio and assistant interfaces.
+
+Use screenshots captured from the working application. Do not use mockups as evidence of implemented functionality.
+
+## Current Limitations
+
+- The project is designed for local development with XAMPP; a public production deployment is not included here.
+- AI-related features depend on their actual implementation and configuration.
+- Database initialization may require sample records in addition to the schema.
+- Payment processing, authentication security, authorization, and order workflows require further testing before production use.
+- Production deployment should include secure credential management, input validation, access control, and appropriate handling of payment information.
+
+## Future Improvements
+
+- Automated tests for core marketplace workflows.
+- Improved authentication and role-based authorization.
+- More comprehensive order and inventory validation.
+- Secure payment-provider integration.
+- Expanded AI assistance with documented evaluation.
+- Responsive accessibility improvements and deployment automation.
+
+## Learning Outcomes
+
+AgroProducts provides practical experience in PHP application development, relational database design, frontend interaction, marketplace workflows, and the integration of AI-oriented user experiences.
+
+## Author
+
+**Bindushree C**  
+Computer Science Engineering — Artificial Intelligence & Machine Learning
+
+- GitHub: [@Bindushree-25](https://github.com/Bindushree-25)
+
+---
+
+*Developed as an academic software project exploring digital agricultural commerce and AI-enhanced user experiences.*
