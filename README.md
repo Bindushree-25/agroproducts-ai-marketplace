@@ -13,7 +13,13 @@ AgroProducts is a web application built to make agricultural products easier to 
 > **Status:** Local development build
 
 ---
+## Application Preview
 
+<p align="center">
+  <img src="Screenshot 2026-10-21 143505.png" alt="AgroProducts marketplace homepage" width="100%">
+</p>
+
+*The AgroProducts homepage, featuring the farm-to-consumer marketplace interface.*
 ## Overview
 
 Traditional agricultural supply chains can make it difficult for customers to discover products directly from farmers. AgroProducts explores how a digital marketplace can simplify product discovery, support farmer-managed listings, and provide a more structured online purchasing experience.
