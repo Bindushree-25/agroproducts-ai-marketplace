@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="agroproducts-banner.png" alt="AgroProducts — AI-Enhanced Agricultural Marketplace" width="100%">
+</p>
+
 # AgroProducts | AI-Enhanced Farm-to-Consumer Marketplace
 
 **A full-stack agricultural marketplace connecting farmers and customers through digital product discovery, inventory management, and streamlined ordering.**
